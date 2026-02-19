@@ -1,3 +1,124 @@
-<h1>
-    Boston House Pricing Prediction
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Prediction</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet"
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body{
+            background:#f4f6f9;
+        }
+        .card{
+            margin-top:50px;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1{
+            text-align:center;
+            margin-bottom:30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-8">
+
+<div class="card">
+
+<h1>Boston House Price Prediction</h1>
+
+<form action="{{ url_for('predict') }}" method="post">
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<input type="text" name="CRIM" class="form-control" placeholder="CRIM" required>
+</div>
+
+<div class="form-group col-md-6">
+<input type="text" name="ZN" class="form-control" placeholder="ZN" required>
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<input type="text" name="INDUS" class="form-control" placeholder="INDUS" required>
+</div>
+
+<div class="form-group col-md-6">
+<input type="text" name="CHAS" class="form-control" placeholder="CHAS" required>
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<input type="text" name="NOX" class="form-control" placeholder="NOX" required>
+</div>
+
+<div class="form-group col-md-6">
+<input type="text" name="RM" class="form-control" placeholder="RM" required>
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<input type="text" name="AGE" class="form-control" placeholder="AGE" required>
+</div>
+
+<div class="form-group col-md-6">
+<input type="text" name="DIS" class="form-control" placeholder="DIS" required>
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<input type="text" name="RAD" class="form-control" placeholder="RAD" required>
+</div>
+
+<div class="form-group col-md-6">
+<input type="text" name="TAX" class="form-control" placeholder="TAX" required>
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<input type="text" name="PTRATIO" class="form-control" placeholder="PTRATIO" required>
+</div>
+
+<div class="form-group col-md-6">
+<input type="text" name="B" class="form-control" placeholder="B" required>
+</div>
+</div>
+
+<div class="form-group">
+<input type="text" name="LSTAT" class="form-control" placeholder="LSTAT" required>
+</div>
+
+<button type="submit" class="btn btn-primary btn-block">
+Predict House Price
+</button>
+
+</form>
+
+<br>
+
+{% if prediction_text %}
+<div class="alert alert-success text-center">
+    <h4>{{ prediction_text }}</h4>
+</div>
+{% endif %}
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
